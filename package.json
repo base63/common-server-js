@@ -26,12 +26,7 @@
     "out": "e:.",
     "README.md": "f:README.md",
     "package.json": "f:package.json",
-    "tsconfig.json": "f:tsconfig.json"
-  },
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@base63/common-js": "~0",
-    "@types/bunyan": "=1.8.3",
+    "@types/bunyan": "=1.8.2",
     "async-middleware": "=1.2.1",
     "bunyan": "=1.8.12",
     "bunyan-loggly": "=1.3.1",
