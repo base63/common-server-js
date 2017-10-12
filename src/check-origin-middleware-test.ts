@@ -54,4 +54,32 @@ describe('CheckOriginMiddleware', () => {
         td.verify(mockRes.status(HttpStatus.BAD_REQUEST));
         td.verify(mockRes.end());
     });
+
+    it('should copy the list of clients', () => {
+        const allowedOrigins = ['base63.com'];
+        const checkOriginMiddleware = newCheckOriginMiddleware(allowedOrigins);
+
+        const mockReq = td.object(['header']);
+        const mockRes = td.object('Response');
+
+        td.when(mockReq.header('Origin')).thenReturn('base63.com');
+
+        {
+            var passedCheck = false;
+
+            checkOriginMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true });
+
+            expect(passedCheck).to.be.true;
+        }
+
+        allowedOrigins[0] = 'base63.io';
+
+        {
+            var passedCheck = false;
+
+            checkOriginMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true });
+
+            expect(passedCheck).to.be.true;
+        }
+    });
 });
