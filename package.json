@@ -48,7 +48,7 @@
     "@types/http-status-codes": "=1.0.29",
     "@types/istanbul": "=0.4.29",
     "@types/mocha": "=2.2.38",
-    "@types/node": "=8.0.34",
+    "@types/node": "=8.0.33",
     "chai": "=4.1.2",
     "codecov": "=2.3.0",
     "coverage-filter": "=0.1.0",
