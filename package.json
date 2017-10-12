@@ -20,6 +20,7 @@
   },
   "private": true,
   "homepage": "https://github.com/base63/common-server-js#readme",
+  "license": "MIT",
   "main": "./index.js",
   "types": "./index.d.ts",
   "filesPack": {
