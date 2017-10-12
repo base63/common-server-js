@@ -39,10 +39,12 @@ describe('CheckOriginMiddleware', () => {
         const checkOriginMiddleware = newCheckOriginMiddleware(['base63.com']);
         var passedCheck = false;
 
+        /* codecov skip start */
         const mockReq = td.object({
             header: (_name: string) => {},
             log: {warn: (_msg: string) => {}}
         });
+        /* codecov skip end */
         const mockRes = td.object(['status', 'end']);
 
         td.when(mockReq.header('Origin')).thenReturn('base63.io');
