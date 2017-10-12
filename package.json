@@ -30,6 +30,7 @@
     "tsconfig.json": "f:tsconfig.json"
   },
   "dependencies": {
+    "@base63/common-js": "~0",
     "@types/bunyan": "=1.8.3",
     "async-middleware": "=1.2.1",
     "bunyan": "=1.8.12",
@@ -44,6 +45,7 @@
     "rollbar": "=2.2.9"
   },
   "devDependencies": {
+    "@base63/togemfury": "~0",
     "@types/chai": "=4.0.4",
     "@types/cookie-parser": "=1.4.1",
     "@types/es6-promise": "=0.0.33",
