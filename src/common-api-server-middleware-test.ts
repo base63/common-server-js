@@ -3,26 +3,27 @@ import * as HttpStatus from 'http-status-codes'
 import 'mocha'
 import * as td from 'testdouble'
 
-import { newCheckOriginMiddleware } from './check-origin-middleware'
+import { newCommonApiServerMiddleware } from './common-api-server-middleware'
 
 
-describe('CheckOriginMiddleware', () => {
-    it('should allow request with proper origin', () => {
-        const checkOriginMiddleware = newCheckOriginMiddleware(['base63.com']);
+describe('CommonApiServerMiddleware', () => {
+    it('should allow request with proper origin and set json type', () => {
+        const checkOriginMiddleware = newCommonApiServerMiddleware(['base63.com']);
         var passedCheck = false;
 
         const mockReq = td.object(['header']);
-        const mockRes = td.object('Response');
+        const mockRes = td.object(['type']);
 
         td.when(mockReq.header('Origin')).thenReturn('base63.com');
 
         checkOriginMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true });
 
         expect(passedCheck).to.be.true;
+        td.verify(mockRes.type('json'));
     });
 
     it('should allow request with proper origin out of multiple ones', () => {
-        const checkOriginMiddleware = newCheckOriginMiddleware(['base63.com', 'base63.io']);
+        const checkOriginMiddleware = newCommonApiServerMiddleware(['base63.com', 'base63.io']);
         var passedCheck = false;
 
         const mockReq = td.object(['header']);
@@ -36,7 +37,7 @@ describe('CheckOriginMiddleware', () => {
     });
 
     it('should block a request with a disallowed origin', () => {
-        const checkOriginMiddleware = newCheckOriginMiddleware(['base63.com']);
+        const checkOriginMiddleware = newCommonApiServerMiddleware(['base63.com']);
         var passedCheck = false;
 
         /* codecov skip start */
@@ -59,7 +60,7 @@ describe('CheckOriginMiddleware', () => {
 
     it('should copy the list of clients', () => {
         const allowedOrigins = ['base63.com'];
-        const checkOriginMiddleware = newCheckOriginMiddleware(allowedOrigins);
+        const checkOriginMiddleware = newCommonApiServerMiddleware(allowedOrigins);
 
         const mockReq = td.object(['header']);
         const mockRes = td.object('Response');

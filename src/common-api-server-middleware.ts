@@ -4,10 +4,10 @@ import * as HttpStatus from 'http-status-codes'
 import { Request } from './request'
 
 
-export function newCheckOriginMiddleware(clients: string[]) {
+export function newCommonApiServerMiddleware(clients: string[]): express.RequestHandler {
     const localClients = clients.slice(0);
 
-    return function(req: Request, res: express.Response, next: express.NextFunction): any {
+    return (req: Request, res: express.Response, next: express.NextFunction) => {
         const origin = req.header('Origin') as string;
 
         if (localClients.indexOf(origin) == -1) {
@@ -16,6 +16,8 @@ export function newCheckOriginMiddleware(clients: string[]) {
             res.end();
             return;
         }
+
+        res.type('json');
 
         // Fire away.
         next();

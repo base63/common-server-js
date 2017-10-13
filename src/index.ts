@@ -1,6 +1,5 @@
-export * from './check-origin-middleware'
+export * from './common-api-server-middleware'
 export * from './common-server-middleware'
 export * from './internal-web-fetcher'
-export * from './json-content-middleware'
 export * from './migrations'
 export * from './request'

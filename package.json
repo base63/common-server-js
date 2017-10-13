@@ -1,6 +1,6 @@
 {
   "name": "@base63/common-server-js",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Things shared between packages, for server-side work.",
   "author": "Base63 team",
   "scripts": {
