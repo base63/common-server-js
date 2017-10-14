@@ -30,7 +30,7 @@
     "tsconfig.json": "f:tsconfig.json"
   },
   "dependencies": {
-    "@base63/common-js": "~0",
+    "@base63/common-js": "=0.0.1",
     "@types/bunyan": "=1.8.3",
     "async-middleware": "=1.2.1",
     "bunyan": "=1.8.12",
