@@ -18,7 +18,6 @@
     "type": "git",
     "url": "git+https://github.com/base63/common-server-js.git"
   },
-  "private": true,
   "homepage": "https://github.com/base63/common-server-js#readme",
   "license": "MIT",
   "main": "./index.js",
