@@ -14,7 +14,7 @@
     "common",
     "server"
   ],
-  "respository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/base63/common-server-js.git"
   },
