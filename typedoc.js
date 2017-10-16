@@ -1,7 +1,7 @@
 module.exports = {
     "name": "common-server-js",
     "mode": "modules",
-    "module": "common-server-js",
+    "module": "common-js",
     "exclude": "**/*-test.ts",
     "out": "docs",
     "excludePrivate": true
