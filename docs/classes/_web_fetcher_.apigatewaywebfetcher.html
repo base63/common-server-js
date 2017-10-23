@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;internal-web-fetcher&quot; | common-server-js</title>
+	<title>ApiGatewayWebFetcher | common-server-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,27 +56,137 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_internal_web_fetcher_.html">&quot;internal-web-fetcher&quot;</a>
+					<a href="../modules/_web_fetcher_.html">&quot;web-fetcher&quot;</a>
+				</li>
+				<li>
+					<a href="_web_fetcher_.apigatewaywebfetcher.html">ApiGatewayWebFetcher</a>
 				</li>
 			</ul>
-			<h1>External module &quot;internal-web-fetcher&quot;</h1>
+			<h1>Class ApiGatewayWebFetcher</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A <a href="../interfaces/_web_fetcher_.webfetcher.html">WebFetcher</a> for communication between a client and a server-side service, via an
+							intermediary gateway. This gateway is usually just the client&#39;s corresponding backend service.
+							This mechanism is needed to (1) insulate the internal API services from external calls, (2)
+							perform a translation between the cookie-based auth present on the client side to the header
+							based on on internal calls, and (3) eliminate the need for CORS and it&#39;s not-so-nice interactions
+						with cross-domain authentication.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ApiGatewayWebFetcher</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/_web_fetcher_.webfetcher.html" class="tsd-signature-type">WebFetcher</a></li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_internal_web_fetcher_.internalwebfetcher.html" class="tsd-kind-icon">Internal<wbr>Web<wbr>Fetcher</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_web_fetcher_.apigatewaywebfetcher.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_web_fetcher_.apigatewaywebfetcher.html#fetch" class="tsd-kind-icon">fetch</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Api<wbr>Gateway<wbr>Web<wbr>Fetcher<span class="tsd-signature-symbol">(</span>apiGatewayHost<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_web_fetcher_.apigatewaywebfetcher.html" class="tsd-signature-type">ApiGatewayWebFetcher</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/base63/common-server-js/blob/ea1d7f6/src/web-fetcher.ts#L56">web-fetcher.ts:56</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Construct a <a href="_web_fetcher_.apigatewaywebfetcher.html">ApiGatewayWebFetcher</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>apiGatewayHost: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the host which acts as the API gateway. The client&#39;s corresponding
+											backend.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_web_fetcher_.apigatewaywebfetcher.html" class="tsd-signature-type">ApiGatewayWebFetcher</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="fetch" class="tsd-anchor"></a>
+					<h3>fetch</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/base63/common-server-js/blob/ea1d7f6/src/web-fetcher.ts#L73">web-fetcher.ts:73</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Perform a HTTP request like in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" class="external">fetch</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uri: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The various request options as documented <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/Request" class="external">here</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A {@link Promise} with a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response" class="external">Response</a> type.</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -87,29 +197,47 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_common_api_server_middleware_.html">"common-<wbr>api-<wbr>server-<wbr>middleware"</a>
+						<a href="../modules/_common_api_server_middleware_.html">"common-<wbr>api-<wbr>server-<wbr>middleware"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_common_server_middleware_.html">"common-<wbr>server-<wbr>middleware"</a>
+						<a href="../modules/_common_server_middleware_.html">"common-<wbr>server-<wbr>middleware"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_index_.html">"index"</a>
+						<a href="../modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_migrations_.html">"migrations"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_request_.html">"request"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_internal_web_fetcher_.html">"internal-<wbr>web-<wbr>fetcher"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_migrations_.html">"migrations"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_request_.html">"request"</a>
+						<a href="../modules/_web_fetcher_.html">"web-<wbr>fetcher"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_web_fetcher_.apigatewaywebfetcher.html" class="tsd-kind-icon">Api<wbr>Gateway<wbr>Web<wbr>Fetcher</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_web_fetcher_.apigatewaywebfetcher.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_web_fetcher_.apigatewaywebfetcher.html#fetch" class="tsd-kind-icon">fetch</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_internal_web_fetcher_.internalwebfetcher.html" class="tsd-kind-icon">Internal<wbr>Web<wbr>Fetcher</a>
+						<a href="_web_fetcher_.internalwebfetcher.html" class="tsd-kind-icon">Internal<wbr>Web<wbr>Fetcher</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_web_fetcher_.webfetcher.html" class="tsd-kind-icon">Web<wbr>Fetcher</a>
 					</li>
 				</ul>
 			</nav>

@@ -69,6 +69,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The <code>base63</code> standard request. It is an extension to the {@link express.Request}, which is itself
+						based off of the node one.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -295,9 +303,15 @@
 					<div class="tsd-signature tsd-kind-icon">error<wbr>Log<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rollbar</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in request.ts:9</li>
+							<li>Defined in <a href="https://github.com/base63/common-server-js/blob/ea1d7f6/src/request.ts#L29">request.ts:29</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An instance of a <a href="https://rollbar.com/" class="external">Rollbar</a> error collector. In a production
+							context (either Staging or Prod), this is hooked up to the actual service.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="fresh" class="tsd-anchor"></a>
@@ -439,9 +453,16 @@
 					<div class="tsd-signature tsd-kind-icon">log<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Logger</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in request.ts:8</li>
+							<li>Defined in <a href="https://github.com/base63/common-server-js/blob/ea1d7f6/src/request.ts#L24">request.ts:24</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An instance of a <a href="https://github.com/trentm/node-bunyan" class="external">bunyan</a> {@link Logger}. In
+								a production context (either Staging or Prod), this is hooked up to the
+							<a href="https://www.loggly.com/" class="external">Loggly</a> log collection service.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
 					<a name="method" class="tsd-anchor"></a>
@@ -564,9 +585,15 @@
 					<div class="tsd-signature tsd-kind-icon">request<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in request.ts:7</li>
+							<li>Defined in <a href="https://github.com/base63/common-server-js/blob/ea1d7f6/src/request.ts#L18">request.ts:18</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The time at which the request was recorded by the system. Time is UTC and recorded as the
+							local time of the machine handling the request.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="route" class="tsd-anchor"></a>
@@ -3390,13 +3417,13 @@ req.<span class="hljs-built_in">get</span>(<span class="hljs-string">'Something'
 						<a href="../modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_internal_web_fetcher_.html">"internal-<wbr>web-<wbr>fetcher"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="../modules/_migrations_.html">"migrations"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/_request_.html">"request"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_web_fetcher_.html">"web-<wbr>fetcher"</a>
 					</li>
 				</ul>
 			</nav>

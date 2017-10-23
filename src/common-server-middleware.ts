@@ -1,3 +1,6 @@
+/** Defines factories for middleware which ensures the basic structure of any `base63` server. */
+
+/** Imports. Also so typedoc works correctly. */
 import * as express from 'express'
 import * as Rollbar from 'rollbar'
 
@@ -5,13 +8,30 @@ import { Env, envToString } from '@base63/common-js'
 
 import { Request } from './request'
 
+/** @private */
 const newBunyanLoggerMiddleware = require('express-bunyan-logger');
+/** @private */
 const Bunyan2Loggly = require('bunyan-loggly');
 
+
+/** @private */
 const LOGGLY_BUFFER_SIZE = 10;
+/** @private */
 const LOGGLY_TIMEOUT_MS = 1000;
 
 
+/**
+ * Create an express middleware component which takes care of the common structure of servers.
+ * This is meant for local usage - that is Local or Dev, but not Staging or Prod.
+ * Should be the first middleware used in a middleware chain. It ensures that the later routers,
+ * handlers and middleware receive a properly formatted {@link Request}. More precisely, it
+ * populates the {@link Request.requestTime} field with the current time in UTC, configures
+ * {@link Request.logger} to be a bunyan logger instance configured for STDOUT logging and
+ * configures {@link Request.errorLog} to be a Rollbar instance with remote recording disabled.
+ * @param name - the name of the service.
+ * @param env - the environment in which the code is running.
+ * @returns an {@link express.RequestHandler} which does all of the above.
+ */
 export function newLocalCommonServerMiddleware(name: string, env: Env): express.RequestHandler {
     const bunyanLoggerMiddleware = newBunyanLoggerMiddleware({
         name: name,
@@ -46,7 +66,27 @@ export function newLocalCommonServerMiddleware(name: string, env: Env): express.
     };
 }
 
-export function newCommonServerMiddleware(name: string, env: Env, logglyToken: string, logglySubdomain: string, rollbarToken: string): express.RequestHandler {
+
+/**
+ * Create an express middleware component which takes care of the common structure of servers.
+ * Should be the first middleware used in a middleware chain. It ensures that the later routers,
+ * handlers and middleware receive a properly formatted {@link Request}. More precisely, it
+ * populates the {@link Request.requestTime} field with the current time in UTC, configures
+ * {@link Request.logger} to be a bunyan logger instance configured for STDOUT and Loggly logging
+ * and configures {@link Request.errorLog} to be a Rollbar instance with remote recording enabled.
+ * @param name - the name of the service.
+ * @param env - the environment in which the code is running.
+ * @param logglyToken - the secret token required for Loggly communication.
+ * @param logglySubdomain - the subdomain assigned to us by Loggly.
+ * @param rollbarToken - the secret token required for Rollbar communication.
+ * @returns an {@link express.RequestHandler} which does all of the above.
+ */
+export function newCommonServerMiddleware(
+    name: string,
+    env: Env,
+    logglyToken: string,
+    logglySubdomain: string,
+    rollbarToken: string): express.RequestHandler {
     const bunyanLoggerMiddleware = newBunyanLoggerMiddleware({
         name: name,
         streams: [{

@@ -1,5 +1,5 @@
 export * from './common-api-server-middleware'
 export * from './common-server-middleware'
-export * from './internal-web-fetcher'
 export * from './migrations'
 export * from './request'
+export * from './web-fetcher'

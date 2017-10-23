@@ -66,6 +66,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Defines a factory for middleware which ensures the basic structure of any <code>base63</code> API server.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -91,16 +98,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in common-api-server-middleware.ts:7</li>
+									<li>Defined in <a href="https://github.com/base63/common-server-js/blob/ea1d7f6/src/common-api-server-middleware.ts#L20">common-api-server-middleware.ts:20</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create an express middleware component which takes care of common structure for API servers.
+										It ensures that there is an Origin header and that it one of a set of allowed origins. It also
+									sets the response content type to JSON, as all our API servers write JSON.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remark</dt>
+									<dd><p>The check is textual, so anyone can fake such a request if they&#39;re in the proper
+										position, but it is a start to identity based checks.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>clients: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an array of hostnames, indicating the allowed services, both client and server
+										which can contact this API.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">express.RequestHandler</span></h4>
+							<p>an {@link express.RequestHandler} which does all of the above.</p>
 						</li>
 					</ul>
 				</section>
@@ -122,13 +147,13 @@
 						<a href="_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_internal_web_fetcher_.html">"internal-<wbr>web-<wbr>fetcher"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="_migrations_.html">"migrations"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_request_.html">"request"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_web_fetcher_.html">"web-<wbr>fetcher"</a>
 					</li>
 				</ul>
 			</nav>
