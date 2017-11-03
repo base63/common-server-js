@@ -40,7 +40,7 @@
     "express-bunyan-logger": "=1.3.2",
     "http-status-codes": "=1.3.0",
     "isomorphic-fetch": "=2.2.1",
-    "raynor": "=0.10.0",
+    "raynor": "=0.10.2",
     "rollbar": "=2.2.9"
   },
   "devDependencies": {
