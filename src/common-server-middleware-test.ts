@@ -12,13 +12,13 @@ describe('LocalCommonServerMiddleware', () => {
         const serverMiddleware = newLocalCommonServerMiddleware('base63', Env.Local);
 
         const rightNow = new Date(Date.now());
-        var passedCheck = false;
+        let passedCheck = false;
 
         const mockReq = td.object({
             requestTime: null,
             log: null,
             errorLog: null,
-            header: () => {}
+            header: () => { }
         });
         const mockRes = td.object(['on']);
 
@@ -39,13 +39,13 @@ describe('CommonServerMiddleware', () => {
         const serverMiddleware = newCommonServerMiddleware('base63', Env.Prod, 'BAD', 'BAD', 'BAD');
 
         const rightNow = new Date(Date.now());
-        var passedCheck = false;
+        let passedCheck = false;
 
         const mockReq = td.object({
             requestTime: null,
             log: null,
             errorLog: null,
-            header: () => {}
+            header: () => { }
         });
         const mockRes = td.object(['on']);
 
