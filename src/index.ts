@@ -8,6 +8,10 @@ export {
 } from './common-server-middleware'
 
 export {
+    getFromEnv
+} from './env-config'
+
+export {
     startupMigration
 } from './migrations'
 
