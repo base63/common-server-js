@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;migrations&quot; | common-server-js</title>
+	<title>&quot;env-config&quot; | common-server-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_migrations_.html">&quot;migrations&quot;</a>
+					<a href="_env_config_.html">&quot;env-config&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;migrations&quot;</h1>
+			<h1>External module &quot;env-config&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -69,12 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helpers for database migrations. <code>base63</code> API services usually have an associated database. We
-							use <a href="http://knexjs.org/" class="external">knex</a> to interact with the database. This is simply a query
-							builder with some added functionality, but is not an ORM. So it doesn&#39;t have any of those
-							code first schemas. So specifying the database schema is done via migrations files in a
-							migrations directory. These are meant to be applied in order to the database and bring it to the
-						desired state.</p>
+						<p>Defines helper functions for working with environment config values.</p>
 					</div>
 				</div>
 			</section>
@@ -85,7 +80,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_migrations_.html#startupmigration" class="tsd-kind-icon">startup<wbr>Migration</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_env_config_.html#getfromenv" class="tsd-kind-icon">get<wbr>From<wbr>Env</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,26 +89,41 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="startupmigration" class="tsd-anchor"></a>
-					<h3>startup<wbr>Migration</h3>
+					<a name="getfromenv" class="tsd-anchor"></a>
+					<h3>get<wbr>From<wbr>Env</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">startup<wbr>Migration<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>From<wbr>Env<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/base63/common-server-js/blob/953ee73/src/migrations.ts#L19">migrations.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/base63/common-server-js/blob/953ee73/src/env-config.ts#L12">env-config.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Executes all of the database migrations in the ./migrations directory, in the order they are
-										defined. Does not run already executed migrations. Meant to be used at process initialization.
-									A synchronous function which takes a while to run. Depends on the &quot;knex&quot; package being installed.</p>
+									<p>Checks that a config value is a non-empty string. The standard {@link process.env} produces
+										either a {@link string} or a {@link undefined}. This will allow the first case to pass, provided
+									that the string is non-empty, and will raise an application-stopping error in the second case.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the value is missing or empty.</p>
+									</dd>
+								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the config value.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The value of the environment variable if it exists and is non-empty.</p>
 						</li>
 					</ul>
 				</section>
@@ -131,13 +141,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_common_server_middleware_.html">"common-<wbr>server-<wbr>middleware"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="_env_config_.html">"env-<wbr>config"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_index_.html">"index"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="_migrations_.html">"migrations"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -151,7 +161,7 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_migrations_.html#startupmigration" class="tsd-kind-icon">startup<wbr>Migration</a>
+						<a href="_env_config_.html#getfromenv" class="tsd-kind-icon">get<wbr>From<wbr>Env</a>
 					</li>
 				</ul>
 			</nav>
