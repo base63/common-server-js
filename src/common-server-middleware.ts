@@ -30,12 +30,13 @@ const LOGGLY_TIMEOUT_MS = 1000;
  * configures {@link Request.errorLog} to be a Rollbar instance with remote recording disabled.
  * @param name - the name of the service.
  * @param env - the environment in which the code is running.
+ * @param testDisable - disable logging for testing.
  * @returns an {@link express.RequestHandler} which does all of the above.
  */
-export function newLocalCommonServerMiddleware(name: string, env: Env): express.RequestHandler {
+export function newLocalCommonServerMiddleware(name: string, env: Env, testDisable: boolean): express.RequestHandler {
     const bunyanLoggerMiddleware = newBunyanLoggerMiddleware({
         name: name,
-        streams: [{
+        streams: testDisable ? [] : [{
             level: 'info',
             stream: process.stdout
         }],
@@ -95,7 +96,7 @@ export function newCommonServerMiddleware(
         }, {
             level: 'info',
             type: 'raw',
-            stream: new Bunyan2Loggly({token: logglyToken, subdomain: logglySubdomain}, LOGGLY_BUFFER_SIZE, LOGGLY_TIMEOUT_MS)
+            stream: new Bunyan2Loggly({ token: logglyToken, subdomain: logglySubdomain }, LOGGLY_BUFFER_SIZE, LOGGLY_TIMEOUT_MS)
         }],
         base63: {
             serviceName: name,

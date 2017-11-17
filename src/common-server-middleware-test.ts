@@ -9,7 +9,7 @@ import { newLocalCommonServerMiddleware, newCommonServerMiddleware } from './com
 
 describe('LocalCommonServerMiddleware', () => {
     it('should create a completed request object', () => {
-        const serverMiddleware = newLocalCommonServerMiddleware('base63', Env.Local);
+        const serverMiddleware = newLocalCommonServerMiddleware('base63', Env.Local, true);
 
         const rightNow = new Date(Date.now());
         let passedCheck = false;
