@@ -8,11 +8,10 @@ import { newLocalCommonServerMiddleware, newCommonServerMiddleware } from './com
 
 
 describe('LocalCommonServerMiddleware', () => {
-    it('should create a completed request object', () => {
+    it('should create a completed request object', (done) => {
         const serverMiddleware = newLocalCommonServerMiddleware('base63', Env.Local, true);
 
         const rightNow = new Date(Date.now());
-        let passedCheck = false;
 
         const mockReq = td.object({
             requestTime: null,
@@ -22,24 +21,23 @@ describe('LocalCommonServerMiddleware', () => {
         });
         const mockRes = td.object(['on']);
 
-        serverMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true });
-
-        expect(passedCheck).to.be.true;
-        expect(mockReq.requestTime).to.be.not.null;
-        expect((mockReq as any).requestTime.getTime()).to.be.gte(rightNow.getTime());
-        expect((mockReq as any).requestTime.getTime()).to.be.approximately(rightNow.getTime(), 10);
-        expect(mockReq.log).to.be.not.null;
-        expect(mockReq.errorLog).to.be.not.null;
+        serverMiddleware(mockReq as any, mockRes as any, () => {
+            expect(mockReq.requestTime).to.be.not.null;
+            expect((mockReq as any).requestTime.getTime()).to.be.gte(rightNow.getTime());
+            expect((mockReq as any).requestTime.getTime()).to.be.approximately(rightNow.getTime(), 10);
+            expect(mockReq.log).to.be.not.null;
+            expect(mockReq.errorLog).to.be.not.null;
+            done();
+        });
     });
 });
 
 
 describe('CommonServerMiddleware', () => {
-    it('should create a completed request object', () => {
+    it('should create a completed request object', (done) => {
         const serverMiddleware = newCommonServerMiddleware('base63', Env.Prod, 'BAD', 'BAD', 'BAD');
 
         const rightNow = new Date(Date.now());
-        let passedCheck = false;
 
         const mockReq = td.object({
             requestTime: null,
@@ -49,13 +47,13 @@ describe('CommonServerMiddleware', () => {
         });
         const mockRes = td.object(['on']);
 
-        serverMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true });
-
-        expect(passedCheck).to.be.true;
-        expect(mockReq.requestTime).to.be.not.null;
-        expect((mockReq as any).requestTime.getTime()).to.be.gte(rightNow.getTime());
-        expect((mockReq as any).requestTime.getTime()).to.be.approximately(rightNow.getTime(), 10);
-        expect(mockReq.log).to.be.not.null;
-        expect(mockReq.errorLog).to.be.not.null;
+        serverMiddleware(mockReq as any, mockRes as any, () => {
+            expect(mockReq.requestTime).to.be.not.null;
+            expect((mockReq as any).requestTime.getTime()).to.be.gte(rightNow.getTime());
+            expect((mockReq as any).requestTime.getTime()).to.be.approximately(rightNow.getTime(), 10);
+            expect(mockReq.log).to.be.not.null;
+            expect(mockReq.errorLog).to.be.not.null;
+            done();
+        });
     });
 });

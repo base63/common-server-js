@@ -7,38 +7,36 @@ import { newCommonApiServerMiddleware } from './common-api-server-middleware'
 
 
 describe('CommonApiServerMiddleware', () => {
-    it('should allow request with proper origin and set json type', () => {
+    it('should allow request with proper origin and set json type', (done) => {
         const checkOriginMiddleware = newCommonApiServerMiddleware(['base63.com']);
-        var passedCheck = false;
 
         const mockReq = td.object(['header']);
         const mockRes = td.object(['type']);
 
         td.when(mockReq.header('Origin')).thenReturn('base63.com');
 
-        checkOriginMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true });
-
-        expect(passedCheck).to.be.true;
-        td.verify(mockRes.type('json'));
+        checkOriginMiddleware(mockReq as any, mockRes as any, () => {
+            td.verify(mockRes.type('json'));
+            done();
+        });
     });
 
-    it('should allow request with proper origin out of multiple ones', () => {
+    it('should allow request with proper origin out of multiple ones', (done) => {
         const checkOriginMiddleware = newCommonApiServerMiddleware(['base63.com', 'base63.io']);
-        var passedCheck = false;
 
         const mockReq = td.object(['header']);
         const mockRes = td.object('Response');
 
         td.when(mockReq.header('Origin')).thenReturn('base63.com');
 
-        checkOriginMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true });
-
-        expect(passedCheck).to.be.true;
+        checkOriginMiddleware(mockReq as any, mockRes as any, () => {
+            done();
+        });
     });
 
     it('should block a request with a disallowed origin', () => {
         const checkOriginMiddleware = newCommonApiServerMiddleware(['base63.com']);
-        var passedCheck = false;
+        let passedCheck = false;
 
         /* codecov skip start */
         const mockReq = td.object({
@@ -50,7 +48,7 @@ describe('CommonApiServerMiddleware', () => {
 
         td.when(mockReq.header('Origin')).thenReturn('base63.io');
 
-        checkOriginMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true });
+        checkOriginMiddleware(mockReq as any, mockRes as any, () => { passedCheck = true; });
 
         expect(passedCheck).to.be.false;
         td.verify(mockReq.log.warn('Origin is not allowed'));
