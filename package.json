@@ -1,11 +1,10 @@
 {
   "name": "@base63/common-server-js",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Things shared between packages, for server-side work.",
   "author": "Base63 team",
   "scripts": {
     "build": "tsc",
-    "pretest": "tsc",
     "test-dev": "tsc --watch & mocha --watch $(find out -name '*-test.js')",
     "test": "tsc && istanbul cover --config ./.istanbul.yml ./node_modules/mocha/bin/_mocha --  $(find out -name '*-test.js') && remap-istanbul -i ./build/coverage/coverage-final.json -o ./build/coverage/coverage-remapped.json && coverage-filter -i ./build/coverage/coverage-remapped.json -o ./build/coverage/coverage-filtered.json",
     "push-coverage-to-codecov": "codecov -f ./build/coverage/coverage-filtered.json",
@@ -30,7 +29,7 @@
     "tsconfig.json": "f:tsconfig.json"
   },
   "dependencies": {
-    "@base63/common-js": "=0.2.1",
+    "@base63/common-js": "=0.2.2",
     "@types/bunyan": "=1.8.3",
     "async-middleware": "=1.2.1",
     "bunyan": "=1.8.12",
