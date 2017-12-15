@@ -24,3 +24,8 @@ export {
     InternalWebFetcher,
     WebFetcher
 } from './web-fetcher'
+
+
+export {
+    newNamespaceMiddleware
+} from './namespace-middleware'
