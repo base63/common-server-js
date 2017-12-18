@@ -1,6 +1,6 @@
 {
     "name": "@base63/common-server-js",
-    "version": "1.5.1",
+    "version": "1.6.0",
     "description": "Things shared between packages, for server-side work.",
     "author": "Base63 team",
     "scripts": {
@@ -29,7 +29,7 @@
         "tsconfig.json": "f:tsconfig.json"
     },
     "dependencies": {
-        "@base63/common-js": "=0.2.2",
+        "@base63/common-js": "=1.0.0",
         "@types/bunyan": "=1.8.3",
         "async-middleware": "=1.2.1",
         "bunyan": "=1.8.12",
