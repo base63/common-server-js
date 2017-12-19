@@ -1,3 +1,6 @@
+import 'isomorphic-fetch'
+
+
 /**
  * Defines the {@link WebFetcher} interface, and the two standard implementations of it,
  * {@link InternalWebFetcher} and {@link ApiGatewayWebFetcher}.
