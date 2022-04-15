@@ -42,7 +42,7 @@
         "http-status-codes": "=1.3.0",
         "isomorphic-fetch": "=2.2.1",
         "raynor": "=0.14.0",
-        "rollbar": "=2.3.2"
+        "rollbar": "2.25.0"
     },
     "devDependencies": {
         "@base63/togemfury": "=0.1.1",
